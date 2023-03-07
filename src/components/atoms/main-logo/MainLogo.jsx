@@ -2,7 +2,6 @@
 // Libraries
 // -----------------------------------------------------------------------------
 import React from "react";
-import { Route, Routes } from "react-router-dom";
 
 // -----------------------------------------------------------------------------
 // Store
@@ -11,24 +10,21 @@ import { Route, Routes } from "react-router-dom";
 // -----------------------------------------------------------------------------
 // Components
 // -----------------------------------------------------------------------------
-import { HomeSection } from "@sections/home-section";
-import { MainLayout } from "@layouts/main-layout";
 
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
+import StyledMainLogo from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const Router = () => {
+const MainLogo = () => {
   return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route path="" element={<HomeSection />} />
-      </Route>
-    </Routes>
+    <StyledMainLogo>
+      <img src="https://placehold.co/250x90/webp" alt="Main Logo" title="Main Logo" />
+    </StyledMainLogo>
   );
 };
 
-export default Router;
+export default MainLogo;

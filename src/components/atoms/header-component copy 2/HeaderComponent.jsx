@@ -2,7 +2,6 @@
 // Libraries
 // -----------------------------------------------------------------------------
 import React from "react";
-import { Route, Routes } from "react-router-dom";
 
 // -----------------------------------------------------------------------------
 // Store
@@ -11,24 +10,17 @@ import { Route, Routes } from "react-router-dom";
 // -----------------------------------------------------------------------------
 // Components
 // -----------------------------------------------------------------------------
-import { HomeSection } from "@sections/home-section";
-import { MainLayout } from "@layouts/main-layout";
 
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
+import StyledHeaderComponent from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const Router = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route path="" element={<HomeSection />} />
-      </Route>
-    </Routes>
-  );
+const HeaderComponent = () => {
+  return <StyledHeaderComponent>TODO</StyledHeaderComponent>;
 };
 
-export default Router;
+export default HeaderComponent;

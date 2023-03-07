@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // Libraries
 // -----------------------------------------------------------------------------
-import { Outlet } from "react-router-dom";
+import React from "react";
 
 // -----------------------------------------------------------------------------
 // Store
@@ -10,20 +10,25 @@ import { Outlet } from "react-router-dom";
 // -----------------------------------------------------------------------------
 // Components
 // -----------------------------------------------------------------------------
+import { MainLogo } from "@atoms/main-logo";
+import { MainMenu } from "@molecules/main-menu";
 
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
-import StyledMainLayout from "./style";
+import StyledHeaderSection from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-export default () => {
+const HeaderSection = () => {
   return (
-    <StyledMainLayout>
-      Header Section
-      <Outlet />
-    </StyledMainLayout>
+    <StyledHeaderSection className="th-header-section">
+      <MainLogo />
+      <MainMenu />
+      <div>TODO Search</div>
+    </StyledHeaderSection>
   );
 };
+
+export default HeaderSection;

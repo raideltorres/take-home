@@ -2,7 +2,7 @@
 // Libraries
 // -----------------------------------------------------------------------------
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // -----------------------------------------------------------------------------
 // Store
@@ -11,24 +11,37 @@ import { Route, Routes } from "react-router-dom";
 // -----------------------------------------------------------------------------
 // Components
 // -----------------------------------------------------------------------------
-import { HomeSection } from "@sections/home-section";
-import { MainLayout } from "@layouts/main-layout";
 
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
+import StyledMainMenu from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const Router = () => {
+const MainMenu = () => {
   return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route path="" element={<HomeSection />} />
-      </Route>
-    </Routes>
+    <StyledMainMenu>
+      <ul>
+        <li>
+          <Link to="#">TODO</Link>
+        </li>
+        <li>
+          <Link to="#">TODO</Link>
+        </li>
+        <li>
+          <Link to="#">TODO</Link>
+        </li>
+        <li>
+          <Link to="#">TODO</Link>
+        </li>
+        <li>
+          <Link to="#">TODO</Link>
+        </li>
+      </ul>
+    </StyledMainMenu>
   );
 };
 
-export default Router;
+export default MainMenu;

@@ -8,11 +8,13 @@ import { BrowserRouter } from "react-router-dom";
 // -----------------------------------------------------------------------------
 // Components
 // -----------------------------------------------------------------------------
+import { Theme } from "@theme";
 import Router from "./Router";
 
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
+import "@theme/styles/styles.scss";
 
 // -----------------------------------------------------------------------------
 // Component
@@ -20,7 +22,9 @@ import Router from "./Router";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Router />
+      <Theme>
+        <Router />
+      </Theme>
     </BrowserRouter>
   </React.StrictMode>
 );
