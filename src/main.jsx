@@ -4,6 +4,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+
+// -----------------------------------------------------------------------------
+// Store
+// -----------------------------------------------------------------------------
+import { store } from "@store";
 
 // -----------------------------------------------------------------------------
 // Components
@@ -21,10 +27,12 @@ import "@theme/styles/styles.scss";
 // -----------------------------------------------------------------------------
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Theme>
-        <Router />
-      </Theme>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Theme>
+          <Router />
+        </Theme>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );

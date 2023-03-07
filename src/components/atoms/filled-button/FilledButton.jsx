@@ -10,26 +10,27 @@ import React from "react";
 // -----------------------------------------------------------------------------
 // Components
 // -----------------------------------------------------------------------------
-import { MainLogo } from "@atoms/main-logo";
-import { MainMenu } from "@molecules/main-menu";
-import { Search } from "@molecules/search";
 
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
-import StyledHeaderSection from "./style";
+import StyledFilledButton from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const HeaderSection = () => {
+const FilledButton = ({ backgroundColor, color, hoverBackgroundColor, hoverColor, children, onClick }) => {
   return (
-    <StyledHeaderSection className="th-header-section">
-      <MainLogo />
-      <MainMenu />
-      <Search />
-    </StyledHeaderSection>
+    <StyledFilledButton
+      backgroundColor={backgroundColor}
+      color={color}
+      hoverBackgroundColor={hoverBackgroundColor}
+      hoverColor={hoverColor}
+      onClick={onClick}
+    >
+      {children}
+    </StyledFilledButton>
   );
 };
 
-export default HeaderSection;
+export default FilledButton;

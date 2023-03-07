@@ -22,22 +22,19 @@ import StyledMainMenu from "./style";
 // -----------------------------------------------------------------------------
 const MainMenu = () => {
   return (
-    <StyledMainMenu>
-      <ul>
-        <li>
-          <Link to="#">TODO</Link>
+    <StyledMainMenu className="th-main-menu">
+      <ul className="th-main-menu__list">
+        <li className="th-main-menu__list__item">
+          <Link to="#">Home</Link>
         </li>
-        <li>
-          <Link to="#">TODO</Link>
+        <li className="th-main-menu__list__item">
+          <Link to="#">About</Link>
         </li>
-        <li>
-          <Link to="#">TODO</Link>
+        <li className="th-main-menu__list__item">
+          <Link to="#">Blog</Link>
         </li>
-        <li>
-          <Link to="#">TODO</Link>
-        </li>
-        <li>
-          <Link to="#">TODO</Link>
+        <li className="th-main-menu__list__item">
+          <Link to="#">Contact</Link>
         </li>
       </ul>
     </StyledMainMenu>

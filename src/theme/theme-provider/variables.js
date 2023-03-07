@@ -5,7 +5,9 @@ export const variables = {
   colors: {
     white: "#ffffff",
     black: "#000000",
-    cumulus: "#FFFFD4",
+    tenn: "#D05A00",
+    concrete: "#F2F2F2",
+    richGold: "#B25006",
   },
 
   // ---------------------------------------------------------------------------

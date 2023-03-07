@@ -14,13 +14,18 @@ import React from "react";
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
-import StyledHeaderComponent from "./style";
+import StyledTextInput from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const HeaderComponent = () => {
-  return <StyledHeaderComponent>TODO</StyledHeaderComponent>;
+const TextInput = ({ label, onKeyDown, onChange }) => {
+  return (
+    <StyledTextInput className="th-text-input">
+      {label && <label className="th-text-input__label">{label}</label>}
+      <input className="th-text-input__input" type="text" onKeyDown={onKeyDown} onChange={onChange} />
+    </StyledTextInput>
+  );
 };
 
-export default HeaderComponent;
+export default TextInput;
