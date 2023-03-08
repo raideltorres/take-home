@@ -1,6 +1,7 @@
 // -----------------------------------------------------------------------------
 // Libraries
 // -----------------------------------------------------------------------------
+import cx from "classnames";
 import React, { useCallback, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { debounce } from "lodash";
@@ -25,7 +26,7 @@ import StyledSearch from "./style";
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const Search = () => {
+const Search = ({ className }) => {
   const dispatch = useDispatch();
 
   const onKeyDown = useCallback((event) => {
@@ -45,7 +46,7 @@ const Search = () => {
   const onChange = useMemo(() => debounce(onSearchTermChange, 400), [onSearchTermChange]);
 
   return (
-    <StyledSearch className="th-search">
+    <StyledSearch className={cx([className, "th-search"])}>
       <TextInput label="SEARCH THE SITE" onKeyDown={onKeyDown} onChange={onChange} />
       <FilledButton
         backgroundColor={variables.colors.tenn}

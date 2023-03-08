@@ -20,6 +20,14 @@ const StyledTextInput = styled.div`
       border-radius: 4px;
     }
   }
+
+  @media (max-width: ${({ theme }) => theme.responsive.mobile}) {
+    .th-text-input {
+      &__label {
+        text-align: center;
+      }
+    }
+  }
 `;
 
 export default StyledTextInput;

@@ -10,7 +10,7 @@ import React from "react";
 // -----------------------------------------------------------------------------
 // Components
 // -----------------------------------------------------------------------------
-import { MainLogo } from "@atoms/main-logo";
+import { LogoImage } from "@atoms/logo-image";
 import { MainMenu } from "@molecules/main-menu";
 import { Search } from "@molecules/search";
 
@@ -25,9 +25,9 @@ import StyledHeaderSection from "./style";
 const HeaderSection = () => {
   return (
     <StyledHeaderSection className="th-header-section">
-      <MainLogo />
-      <MainMenu />
-      <Search />
+      <LogoImage className="th-header-section__logo" />
+      <MainMenu className="th-header-section__menu" />
+      <Search className="th-header-section__search" />
     </StyledHeaderSection>
   );
 };

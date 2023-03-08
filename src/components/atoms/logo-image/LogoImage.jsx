@@ -3,7 +3,6 @@
 // -----------------------------------------------------------------------------
 import React from "react";
 import cx from "classnames";
-import { Link } from "react-router-dom";
 
 // -----------------------------------------------------------------------------
 // Store
@@ -16,30 +15,22 @@ import { Link } from "react-router-dom";
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
-import StyledMainMenu from "./style";
+import StyledLogoImage from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const MainMenu = ({ className }) => {
+const LogoImage = ({ className }) => {
   return (
-    <StyledMainMenu className={cx([className, "th-main-menu"])}>
-      <ul className="th-main-menu__list">
-        <li className="th-main-menu__list__item">
-          <Link to="#">Home</Link>
-        </li>
-        <li className="th-main-menu__list__item">
-          <Link to="#">About</Link>
-        </li>
-        <li className="th-main-menu__list__item">
-          <Link to="#">Blog</Link>
-        </li>
-        <li className="th-main-menu__list__item">
-          <Link to="#">Contact</Link>
-        </li>
-      </ul>
-    </StyledMainMenu>
+    <StyledLogoImage className={cx([className, "th-logo-image"])}>
+      <img
+        className="th-logo-image__image"
+        src="https://placehold.co/250x90/svg?text=Logo"
+        alt="Main Logo"
+        title="Main Logo"
+      />
+    </StyledLogoImage>
   );
 };
 
-export default MainMenu;
+export default LogoImage;

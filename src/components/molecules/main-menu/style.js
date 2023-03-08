@@ -6,6 +6,10 @@ const StyledMainMenu = styled.div`
       list-style: none;
       display: flex;
       gap: 16px;
+      padding: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
 
       &__item {
         a {

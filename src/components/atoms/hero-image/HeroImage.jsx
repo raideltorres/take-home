@@ -14,17 +14,13 @@ import React from "react";
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
-import StyledMainLogo from "./style";
+import StyledHeroImage from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const MainLogo = () => {
-  return (
-    <StyledMainLogo>
-      <img src="https://placehold.co/250x90/webp" alt="Main Logo" title="Main Logo" />
-    </StyledMainLogo>
-  );
+const HeroImage = ({ image }) => {
+  return <StyledHeroImage image={image} />;
 };
 
-export default MainLogo;
+export default HeroImage;

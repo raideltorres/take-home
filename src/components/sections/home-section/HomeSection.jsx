@@ -10,6 +10,7 @@ import React from "react";
 // -----------------------------------------------------------------------------
 // Components
 // -----------------------------------------------------------------------------
+import { HeroImage } from "@atoms/hero-image";
 
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
@@ -20,7 +21,11 @@ import StyledHomeSection from "./style";
 // Component
 // -----------------------------------------------------------------------------
 const HomeSection = () => {
-  return <StyledHomeSection>TODO</StyledHomeSection>;
+  return (
+    <StyledHomeSection>
+      <HeroImage image={`https://placehold.co/2000x400/webp?text=Hero+Image`} />
+    </StyledHomeSection>
+  );
 };
 
 export default HomeSection;

@@ -7,6 +7,7 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src/"),
       "@store": `${path.resolve(__dirname, "./src/store/")}`,
+      "@helpers": `${path.resolve(__dirname, "./src/helpers/")}`,
       "@theme": `${path.resolve(__dirname, "./src/theme/")}`,
       "@atoms": `${path.resolve(__dirname, "./src/components/atoms/")}`,
       "@molecules": `${path.resolve(__dirname, "./src/components/molecules/")}`,
