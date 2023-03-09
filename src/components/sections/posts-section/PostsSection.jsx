@@ -12,6 +12,7 @@ import React, { useCallback, useState } from "react";
 // -----------------------------------------------------------------------------
 import { FilledButton } from "@atoms/filled-button";
 import { PostFormModal } from "@molecules/post-form-modal";
+import { PostsGallery } from "@molecules/posts-gallery";
 
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
@@ -41,7 +42,7 @@ const PostsSection = () => {
           Create Post
         </FilledButton>
       </div>
-      <div className="th-posts-section__posts"></div>
+      <PostsGallery />
       <PostFormModal open={postFormModalOpen} setOpen={setPostFormModalOpen} />
     </StyledPostsSection>
   );

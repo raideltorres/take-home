@@ -1,4 +1,4 @@
 // -------------------------------------------------------------------------------
 // AppState
 // -------------------------------------------------------------------------------
-export { default as selectMainMenuOpen } from './app-state/select-main-menu-open';
+export { default as selectPosts } from "./select-posts";
