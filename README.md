@@ -12,3 +12,7 @@
 1. PNPM: `https://pnpm.io/`
 2. Vite: `https://vitejs.dev/`
 3. Redux Toolkit: `https://redux-toolkit.js.org/`
+
+## Comments
+
+In this challenge I was expecting to create a proper typography system but was only able to dedicate a couple hours each day so never had time :) (sorry)

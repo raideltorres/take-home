@@ -33,3 +33,28 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #000000;
 }
+
+.ant-modal-wrap,
+.ant-modal-content {
+  display: block;
+}
+
+.ant-modal-title {
+  justify-content: center;
+  width: 100%;
+}
+
+.ant-modal-mask {
+  background-color: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+}
+
+.ant-input {
+  height: 50px;
+}
+
+.ant-form-item-control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

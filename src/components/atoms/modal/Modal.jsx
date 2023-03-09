@@ -1,8 +1,8 @@
-// -----------------------------------------------------------------------------
+// -------------------------------------------------------------------------------
 // Libraries
-// -----------------------------------------------------------------------------
+// -------------------------------------------------------------------------------
 import React from "react";
-import cx from "classnames";
+import { Modal as AntdModal } from "antd";
 
 // -----------------------------------------------------------------------------
 // Store
@@ -15,24 +15,27 @@ import cx from "classnames";
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
-import StyledFilledButton from "./style";
+import StyledModal from "./styles";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const FilledButton = ({ className, backgroundColor, color, hoverBackgroundColor, hoverColor, children, onClick }) => {
+const Modal = ({ open, setOpen, title, width, maskClosable, children }) => {
   return (
-    <StyledFilledButton
-      className={cx([className])}
-      backgroundColor={backgroundColor}
-      color={color}
-      hoverBackgroundColor={hoverBackgroundColor}
-      hoverColor={hoverColor}
-      onClick={onClick}
+    <AntdModal
+      title={title}
+      centered
+      closable={false}
+      width={width || "fit-content"}
+      footer={null}
+      open={open}
+      onOk={() => setOpen(false)}
+      onCancel={() => setOpen(false)}
+      maskClosable={maskClosable}
     >
-      {children}
-    </StyledFilledButton>
+      <StyledModal className="th-modal__content">{children}</StyledModal>
+    </AntdModal>
   );
 };
 
-export default FilledButton;
+export default Modal;

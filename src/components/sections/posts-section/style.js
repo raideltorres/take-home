@@ -6,6 +6,10 @@ const StyledPostsSection = styled.div`
   gap: 32px;
 
   .th-posts-section {
+    &__create {
+      width: 200px;
+      margin: 0 auto;
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.responsive.mobile}) {
