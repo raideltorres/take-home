@@ -27,6 +27,10 @@ const StyledHeaderSection = styled.div`
       }
     }
   }
+
+  @media (max-width: ${({ theme }) => theme.responsive.mobile}) {
+    padding: 16px;
+  }
 `;
 
 export default StyledHeaderSection;

@@ -2,6 +2,7 @@
 // Libraries
 // -----------------------------------------------------------------------------
 import React from "react";
+import cx from "classnames";
 
 // -----------------------------------------------------------------------------
 // Store
@@ -19,8 +20,15 @@ import StyledHeroImage from "./style";
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const HeroImage = ({ image }) => {
-  return <StyledHeroImage image={image} />;
+const HeroImage = (props) => {
+  return (
+    <StyledHeroImage {...props} className={cx([props.className, "th-hero-image"])}>
+      <div className="th-hero-image__text">
+        <h2 className="th-hero-image__text__title">{props.title}</h2>
+        <p className="th-hero-image__text__description">{props.description}</p>
+      </div>
+    </StyledHeroImage>
+  );
 };
 
 export default HeroImage;
