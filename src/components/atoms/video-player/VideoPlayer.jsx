@@ -16,25 +16,25 @@ import ReactPlayer from "react-player/youtube";
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
-import StyledVideo from "./style";
+import StyledVideoPlayer from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const Video = ({ src, className }) => {
+const VideoPlayer = ({ className, url }) => {
   return (
-    <StyledVideo className={cx([className, "th-video"])}>
+    <StyledVideoPlayer className={cx([className, "th-video-player"])}>
       <ReactPlayer
-        className="th-video__player"
-        url={src}
+        className="th-video-player__player"
+        url={url}
         muted={true}
         playing={true}
         controls={true}
         width="100%"
         height="100%"
       />
-    </StyledVideo>
+    </StyledVideoPlayer>
   );
 };
 
-export default Video;
+export default VideoPlayer;

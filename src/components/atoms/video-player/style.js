@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
-const StyledVideo = styled.div`
+const StyledVideoPlayer = styled.div`
+  width: 100%;
+  height: 100%;
   position: relative;
   padding-top: 56.25%;
 
-  .th-video {
+  .th-video-player {
     &__player {
       position: absolute;
       top: 0;
@@ -13,4 +15,4 @@ const StyledVideo = styled.div`
   }
 `;
 
-export default StyledVideo;
+export default StyledVideoPlayer;

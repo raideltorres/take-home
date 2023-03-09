@@ -6,23 +6,16 @@ const StyledHomeSection = styled.div`
   flex-direction: column;
 
   .th-home-section {
-    &__video,
-    &__images {
-      flex-direction: column;
-      gap: 32px;
-    }
+    &__content {
+      gap: 64px;
 
-    &__video {
-      width: 40%;
-
-      &__text {
-        text-align: justify;
+      &__video {
+        width: 44%;
       }
-    }
 
-    &__images {
-      flex-direction: column;
-      width: 60%;
+      &__images {
+        width: 56%;
+      }
     }
   }
 
