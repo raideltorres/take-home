@@ -26,16 +26,16 @@ const MainMenu = ({ className }) => {
     <StyledMainMenu className={cx([className, "th-main-menu"])}>
       <ul className="th-main-menu__list">
         <li className="th-main-menu__list__item">
-          <Link to="#">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li className="th-main-menu__list__item">
-          <Link to="#">About</Link>
+          <Link to="/about">About</Link>
         </li>
         <li className="th-main-menu__list__item">
-          <Link to="#">Blog</Link>
+          <Link to="/blog">Blog</Link>
         </li>
         <li className="th-main-menu__list__item">
-          <Link to="#">Contact</Link>
+          <Link to="/contact">Contact</Link>
         </li>
       </ul>
     </StyledMainMenu>

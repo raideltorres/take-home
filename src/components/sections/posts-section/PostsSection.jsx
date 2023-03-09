@@ -2,7 +2,6 @@
 // Libraries
 // -----------------------------------------------------------------------------
 import React from "react";
-import { Route, Routes } from "react-router-dom";
 
 // -----------------------------------------------------------------------------
 // Store
@@ -11,30 +10,17 @@ import { Route, Routes } from "react-router-dom";
 // -----------------------------------------------------------------------------
 // Components
 // -----------------------------------------------------------------------------
-import { HomeSection } from "@sections/home-section";
-import { AboutSection } from "@sections/about-section";
-import { ContactSection } from "@sections/contact-section";
-import { PostsSection } from "@sections/posts-section";
-import { MainLayout } from "@layouts/main-layout";
 
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
+import StyledPostsSection from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const Router = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route path="" element={<HomeSection />} />
-        <Route path="about" element={<AboutSection />} />
-        <Route path="blog" element={<PostsSection />} />
-        <Route path="contact" element={<ContactSection />} />
-      </Route>
-    </Routes>
-  );
+const PostsSection = () => {
+  return <StyledPostsSection className="th-posts-section">POSTS</StyledPostsSection>;
 };
 
-export default Router;
+export default PostsSection;
