@@ -9,6 +9,10 @@ const StyledMainImages = styled.div`
     &__top,
     &__bottom {
       gap: 16px;
+
+      img {
+        width: fit-content;
+      }
     }
 
     &__top {
@@ -24,6 +28,27 @@ const StyledMainImages = styled.div`
       gap: 32px;
       align-items: center;
       justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.responsive.desktop}) {
+    gap: 32px;
+
+    .th-main-images {
+      &__bottom {
+        gap: 16px;
+      }
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.responsive.tablet}) {
+    .th-main-images {
+      &__top {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
     }
   }
 `;
