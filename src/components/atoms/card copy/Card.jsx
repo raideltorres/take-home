@@ -17,13 +17,12 @@ import { Card as AntdCard } from "antd";
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
-import { bem } from "@helpers/bem";
 import StyledCard from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const Card = ({ className, title, content, type, id, onClick }) => {
+const Card = ({ className, title, content, height, id, onClick }) => {
   const sanitizedData = (data) => ({
     __html: DOMPurify.sanitize(data),
   });
@@ -33,9 +32,9 @@ const Card = ({ className, title, content, type, id, onClick }) => {
   }, []);
 
   return (
-    <StyledCard className={cx([className, bem`th-card--${{ [type]: true }}`])}>
+    <StyledCard className={cx([className, "th-card"])} height={height}>
       <AntdCard className="th-card__card" title={title} onClick={onCardClick} hoverable>
-        <div className="th-card__card__content" dangerouslySetInnerHTML={sanitizedData(`<p>${content}</p>`)} />
+        <div dangerouslySetInnerHTML={sanitizedData(`<p>${content}</p>`)} />
       </AntdCard>
     </StyledCard>
   );

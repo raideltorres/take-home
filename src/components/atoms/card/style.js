@@ -16,6 +16,34 @@ const StyledCard = styled.div`
       }
     }
   }
+
+  &.th-card--minimal {
+    height: auto;
+
+    .ant-card {
+      .ant-card-body {
+        padding: 8px 16px;
+      }
+
+      .ant-card-head {
+        min-height: 10px;
+
+        .ant-card-head-title {
+          text-align: left;
+        }
+      }
+    }
+
+    .th-card__card__content {
+      width: 100%;
+
+      p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
 `;
 
 export default StyledCard;

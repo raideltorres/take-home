@@ -1,47 +1,49 @@
 // -----------------------------------------------------------------------------
 // Libraries
 // -----------------------------------------------------------------------------
-import cx from "classnames";
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { debounce } from "lodash";
+import { useNavigate } from "react-router-dom";
+import cx from "classnames";
 
 // -----------------------------------------------------------------------------
 // Store
 // -----------------------------------------------------------------------------
+import { selectSearchResults } from "@store/selectors";
 import { updateSearchTerm } from "@store/slices/app-state/app-state-slice";
-import { selectSearchTerm } from "@store/selectors";
 
 // -----------------------------------------------------------------------------
 // Components
 // -----------------------------------------------------------------------------
-import { TextInput } from "@atoms/text-input";
-import { SearchResultsList } from "@molecules/search-results-list";
+import { Card } from "@atoms/card";
+import { NoResults } from "@atoms/no-results";
 
 // -----------------------------------------------------------------------------
 // Styles, helpers and assets
 // -----------------------------------------------------------------------------
-import StyledSearch from "./style";
+import StyledSearchResultsList from "./style";
 
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const Search = ({ className }) => {
+const SearchResultsList = ({ className }) => {
   const dispatch = useDispatch();
-  const searchTerm = useSelector(selectSearchTerm);
+  const navigate = useNavigate();
+  const posts = useSelector(selectSearchResults);
 
-  const onSearchTermChange = useCallback((event) => {
-    dispatch(updateSearchTerm(event.target.value));
+  const onCardClick = useCallback((id) => {
+    dispatch(updateSearchTerm(""));
+    navigate(`/post/${id}`);
   }, []);
 
-  const onChange = useMemo(() => debounce(onSearchTermChange, 400), [onSearchTermChange]);
-
   return (
-    <StyledSearch className={cx([className, "th-search"])}>
-      <TextInput label="SEARCH THE SITE" onChange={onChange} />
-      {searchTerm && <SearchResultsList className="th-search__results" />}
-    </StyledSearch>
+    <StyledSearchResultsList className={cx([className, "th-search-results-list"])}>
+      {posts.map((params, index) => (
+        <Card key={`posts-search-results-post-${index}`} onClick={onCardClick} {...params} type="minimal" />
+      ))}
+      {!posts.length && <NoResults text="No results!" />}
+    </StyledSearchResultsList>
   );
 };
 
-export default Search;
+export default SearchResultsList;

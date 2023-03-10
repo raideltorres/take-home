@@ -4,6 +4,7 @@ import { getObjectFromLocalStorage } from "@helpers/local-storage";
 export const appStateSlice = createSlice({
   name: "app-state",
   initialState: {
+    searchTerm: "",
     posts: getObjectFromLocalStorage({ key: "posts" }) || [],
   },
   reducers: {
