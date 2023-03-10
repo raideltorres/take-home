@@ -13,6 +13,7 @@ const StyledPostForm = styled.div`
 
       .ant-row {
         width: 100%;
+        flex-flow: wrap;
       }
     }
   }

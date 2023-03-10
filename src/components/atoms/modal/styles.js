@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 const StyledModal = styled.div`
-  .th-modal {
-  }
+  max-width: 100%;
 `;
 
 export default StyledModal;

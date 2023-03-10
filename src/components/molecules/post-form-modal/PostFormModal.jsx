@@ -3,14 +3,13 @@
 // -----------------------------------------------------------------------------
 import cx from "classnames";
 import React, { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { notification } from "antd";
 
 // -----------------------------------------------------------------------------
 // Store
 // -----------------------------------------------------------------------------
-import { createPost } from "@store/slices/app-state/app-state-slice";
-import { selectPosts } from "@store/selectors";
+import { createPost, editPost } from "@store/slices/app-state/app-state-slice";
 
 // -----------------------------------------------------------------------------
 // Components
@@ -26,29 +25,30 @@ import StyledPostFormModal from "./style";
 // -----------------------------------------------------------------------------
 // Component
 // -----------------------------------------------------------------------------
-const PostFormModal = ({ className, open, setOpen }) => {
-  const posts = useSelector(selectPosts);
+const PostFormModal = ({ className, open, setOpen, selectedPost }) => {
   const [api, contextHolder] = notification.useNotification();
   const dispatch = useDispatch();
 
-  const onFinish = useCallback(
-    (data) => {
-      dispatch(createPost({ ...data, id: posts.length + 1 }));
-      setOpen(false);
+  const onFinish = useCallback((data) => {
+    if (selectedPost) {
+      dispatch(editPost({ ...data, id: selectedPost.id }));
+    } else {
+      dispatch(createPost(data));
+    }
 
-      api["success"]({
-        message: "Post Created",
-      });
-    },
-    [posts]
-  );
+    setOpen(false);
+
+    api["success"]({
+      message: "Post Created",
+    });
+  }, []);
 
   return (
     <StyledPostFormModal className={cx([className, "th-post-form-modal"])}>
       {contextHolder}
       {open && (
-        <Modal open={open} setOpen={setOpen} title="TODO">
-          <PostForm selectedPost={{}} onFinish={onFinish} />
+        <Modal open={open} setOpen={setOpen} title={selectedPost ? "Edit Post" : "Create Post"}>
+          <PostForm selectedPost={selectedPost} onFinish={onFinish} />
         </Modal>
       )}
     </StyledPostFormModal>

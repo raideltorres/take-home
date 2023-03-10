@@ -1,45 +1,41 @@
 // -----------------------------------------------------------------------------
 // Libraries
 // -----------------------------------------------------------------------------
-import React, { useCallback } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { createListenerMiddleware } from "@reduxjs/toolkit";
 
 // -----------------------------------------------------------------------------
 // Store
 // -----------------------------------------------------------------------------
 import { selectPosts } from "@store/selectors";
+import { deletePost, updatePosts } from "@store/slices/app-state/app-state-slice";
 
 // -----------------------------------------------------------------------------
-// Components
+// Helpers
 // -----------------------------------------------------------------------------
-import { Card } from "@atoms/card";
-import { NoResults } from "@atoms/no-results";
+import { saveObjectToLocalStorage } from "@helpers/local-storage";
 
 // -----------------------------------------------------------------------------
-// Styles, helpers and assets
+// Effect
 // -----------------------------------------------------------------------------
-import StyledPostsGallery from "./style";
+export const effect = async ({ payload }, { dispatch, getState }) => {
+  const currentPosts = selectPosts(getState());
+  const posts = currentPosts.filter(({ id }) => id !== Number(payload));
 
-// -----------------------------------------------------------------------------
-// Component
-// -----------------------------------------------------------------------------
-const PostsGallery = () => {
-  const navigate = useNavigate();
-  const posts = useSelector(selectPosts);
-
-  const onCardClick = useCallback((id) => {
-    navigate(`/post/${id}`);
-  }, []);
-
-  return (
-    <StyledPostsGallery className="th-posts-gallery">
-      {posts.map((params, index) => (
-        <Card key={`posts-gallery-post-${index}`} onClick={onCardClick} {...params} />
-      ))}
-      {!posts.length && <NoResults text="No posts yet, create one!" />}
-    </StyledPostsGallery>
-  );
+  saveObjectToLocalStorage({ key: "posts", value: posts });
+  dispatch(updatePosts(posts));
 };
 
-export default PostsGallery;
+// -----------------------------------------------------------------------------
+// Listener middleware
+// -----------------------------------------------------------------------------
+const { startListening, middleware } = createListenerMiddleware();
+
+// -----------------------------------------------------------------------------
+// Listener
+// -----------------------------------------------------------------------------
+startListening({
+  actionCreator: deletePost,
+  effect,
+});
+
+export default middleware;

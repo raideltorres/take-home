@@ -4,12 +4,12 @@ import { getObjectFromLocalStorage } from "@helpers/local-storage";
 export const appStateSlice = createSlice({
   name: "app-state",
   initialState: {
-    searchTerm: "",
     posts: getObjectFromLocalStorage({ key: "posts" }) || [],
-    selectedPost: null,
   },
   reducers: {
     createPost: () => undefined,
+    editPost: () => undefined,
+    deletePost: () => undefined,
     updatePosts: (state, { payload }) => {
       state.posts = payload;
     },
@@ -19,6 +19,6 @@ export const appStateSlice = createSlice({
   },
 });
 
-export const { updateSearchTerm, createPost, updatePosts } = appStateSlice.actions;
+export const { updateSearchTerm, createPost, updatePosts, deletePost, editPost } = appStateSlice.actions;
 
 export default appStateSlice.reducer;

@@ -6,19 +6,21 @@ import { createListenerMiddleware } from "@reduxjs/toolkit";
 // -----------------------------------------------------------------------------
 // Store
 // -----------------------------------------------------------------------------
-import { createPost, updatePosts } from "@store/slices/app-state/app-state-slice";
+import { selectPosts } from "@store/selectors";
+import { editPost, updatePosts } from "@store/slices/app-state/app-state-slice";
 
 // -----------------------------------------------------------------------------
 // Helpers
 // -----------------------------------------------------------------------------
-import { getObjectFromLocalStorage, saveObjectToLocalStorage } from "@helpers/local-storage";
+import { saveObjectToLocalStorage } from "@helpers/local-storage";
 
 // -----------------------------------------------------------------------------
 // Effect
 // -----------------------------------------------------------------------------
-export const effect = async ({ payload }, { dispatch }) => {
-  const currentPosts = getObjectFromLocalStorage({ key: "posts" });
-  const posts = currentPosts ? currentPosts.concat([payload]) : [payload];
+export const effect = async ({ payload }, { dispatch, getState }) => {
+  const { id } = payload;
+  const currentPosts = selectPosts(getState());
+  const posts = currentPosts.map((p) => (p.id === Number(id) ? payload : p));
 
   saveObjectToLocalStorage({ key: "posts", value: posts });
   dispatch(updatePosts(posts));
@@ -33,7 +35,7 @@ const { startListening, middleware } = createListenerMiddleware();
 // Listener
 // -----------------------------------------------------------------------------
 startListening({
-  actionCreator: createPost,
+  actionCreator: editPost,
   effect,
 });
 

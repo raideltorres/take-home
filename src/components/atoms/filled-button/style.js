@@ -8,6 +8,10 @@ const StyledFilledButton = styled.button`
   white-space: nowrap;
   border: none;
   transition: all 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 
   background-color: ${({ backgroundColor, theme }) => backgroundColor || theme.colors.white};
   color: ${({ color, theme }) => color || theme.colors.black};

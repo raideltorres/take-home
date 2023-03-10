@@ -33,7 +33,7 @@ const Modal = ({ open, setOpen, title, width, maskClosable, children }) => {
       onCancel={() => setOpen(false)}
       maskClosable={maskClosable}
     >
-      <StyledModal className="th-modal__content">{children}</StyledModal>
+      <StyledModal className="th-modal">{children}</StyledModal>
     </AntdModal>
   );
 };
