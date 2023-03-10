@@ -32,7 +32,7 @@
 
 4. Main menu: A list of the site sections.
 
-   - This one is a molecules composed by multiple Links
+   - This one is a molecule composed by multiple Links
    - About and contact pages are just routes with dummy text
 
 5. Image hero component: Image component to render the site's hero image.
